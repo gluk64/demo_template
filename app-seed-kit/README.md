@@ -6,32 +6,29 @@ Extracted from a production-quality demo app. Every convention, rule, pattern, a
 
 ## Quick Start
 
-1. Clone or copy this template
-2. Search-and-replace the placeholders:
+1. **Fork** this repository (or use it as a template) to create your new project
+2. Open the project in **Claude Code** and enter **plan mode**
+3. Describe the application you want to build — for example:
 
-| Placeholder | Replace with | Example |
+   > Create an app called SendMoney. It lets users send money to anyone by email.
+
+4. Claude will bootstrap the project automatically:
+   - Moves the seed kit contents to the repository root
+   - Replaces all template placeholders with your app's name and description
+   - Cleans up the template directory
+   - Installs dependencies and verifies everything works
+
+5. Once bootstrapped, continue using **plan mode** to design features. Claude acts as a product collaborator — helping you clarify intent, define behavior, and produce structured product briefs before implementation.
+
+## Template Placeholders
+
+These are replaced automatically during bootstrap:
+
+| Placeholder | What it becomes | Example |
 |---|---|---|
-| `[APP_NAME]` | Your app's display name | "SendMoney" |
-| `[app]` | Lowercase slug for keys | "sendmoney" |
-| `[one-line description]` | Product description | "Send money by email" |
-
-3. Install dependencies:
-
-```bash
-npm install
-```
-
-4. Start developing:
-
-```bash
-npm run dev
-```
-
-5. Verify everything works:
-
-```bash
-npm run quality
-```
+| `[APP_NAME]` | Your app's display name | `SendMoney` |
+| `[app]` | Lowercase slug for storage keys and cookies | `sendmoney` |
+| `[one-line description]` | Short product description | `Send money to anyone by email` |
 
 ## What's Included
 
@@ -57,8 +54,7 @@ npm run quality
 - `docs/DOMAIN_MODEL.md` — template for your app's data model
 
 ### Claude Code Integration
-- `CLAUDE.md` — main instructions file for Claude Code
-- `CHAT_PROMPT.md` — instructions for Claude.ai chat conversations
+- `CLAUDE.md` — main instructions file (includes plan mode guidance and development rules)
 - `.claude/agents/planner.md` — produces implementation plans
 - `.claude/agents/code-reviewer.md` — audits engineering quality
 - `.claude/agents/ux-reviewer.md` — audits UX compliance
@@ -69,6 +65,13 @@ npm run quality
 - Playwright configured for E2E tests
 - Currency formatting tests included as examples
 - Token lint script (no raw hex values in components)
+
+## Workflow After Bootstrap
+
+1. **Plan mode** — describe a feature, Claude helps clarify and produces a product brief
+2. **Implementation** — Claude uses the planner agent, builds the feature, writes tests
+3. **Review** — code-reviewer and ux-reviewer agents audit the work
+4. **Iterate** — return to plan mode to refine or add more features
 
 ## Commands
 
