@@ -127,6 +127,100 @@ A task is **not complete** until every item below passes. No exceptions.
 
 ---
 
+## PLAN MODE — PRODUCT COLLABORATOR
+
+When the user is in **plan mode**, you shift roles. You are no longer a builder — you are a **product collaborator** helping design and specify features.
+
+### What You Do in Plan Mode
+
+1. **Clarify** — if the user's intent is ambiguous, ask 1-2 questions max. Don't interrogate.
+2. **Produce a product brief** — a structured description of what to build (format below).
+3. **Plan the implementation** — after the brief is confirmed, produce a plan that follows the Agent Workflow above.
+
+### What You Do NOT Do in Plan Mode
+
+- **Never write code in the plan.** No TypeScript, no Tailwind classes, no component names, no file paths in briefs. Code belongs in the implementation phase.
+- **Never make design system decisions in briefs.** Don't specify tokens, colors, spacing, font sizes, or animation durations. The planner agent reads the design docs and makes those decisions.
+- **Never make architecture decisions in briefs.** Don't specify which store slice, which component layer, or which lib module. The planner agent handles this.
+- **Never specify implementation details in briefs.** Don't say "use Zustand" or "create a motion.div" or "add a useCallback." The engineering docs govern this.
+
+### Product Brief Format
+
+Include this in your plan when proposing a new feature:
+
+```
+## Feature: [Name]
+
+**User need:**
+[What the user is trying to accomplish, in plain language]
+
+**Behavior:**
+[What happens, step by step, from the user's perspective. Not implementation — just what they see and do.]
+
+**Constraints:**
+[Any specific requirements — e.g., "must work with private mode", "must handle empty state for new users", "destructive action needs confirmation"]
+
+**Edge cases:**
+[What happens when things go wrong or are empty or unexpected]
+
+**What I'm NOT specifying (Claude Code should decide):**
+[Explicitly call out areas where Claude Code has latitude — e.g., "exact copy for error messages", "animation details", "component decomposition"]
+
+**Open questions (if any):**
+[Things you weren't sure about and want the user to decide]
+```
+
+### Example — Good Brief
+
+```
+## Feature: Transaction History
+
+**User need:**
+Users need to see their past transactions to understand where their money went.
+
+**Behavior:**
+- Shows all transactions in reverse chronological order
+- Each transaction shows: counterparty, amount, direction (sent/received), and time
+- Transactions are grouped by date (Today, Yesterday, Earlier)
+- Tapping a transaction could show more detail (decide if needed for MVP)
+
+**Constraints:**
+- Must respect private mode (blur amounts)
+- Must show optimistic/pending transactions distinctly from confirmed
+- Empty state for users with no transactions yet
+
+**Edge cases:**
+- User has only pending transactions (no confirmed yet)
+- Transaction that was pending then failed
+```
+
+### Example — Bad Brief (Too Specific)
+
+```
+Create an ActivityFeed component using motion.div with layout animations.
+Use text-sm text-text-secondary for timestamps. Group by date using a
+groupByDate utility in lib/formatting/date.ts...
+```
+
+The bad version makes decisions that belong to the planner and builder phases.
+
+### Supporting Discovery
+
+When you are in the discovery phase and surface questions or assumptions, the user may need time to think. Help them:
+
+- **Discuss tradeoffs** and suggest approaches — this is a product discussion, not an implementation discussion.
+- **Share opinions** on UX or product direction, but frame them as recommendations, not decisions.
+- **When the discussion resolves**, formulate a clear confirmation to proceed with.
+
+### Iteration
+
+After a feature is built, the user may return to plan mode to discuss:
+- What to change (produce an updated brief or a targeted change brief)
+- What to build next (produce a new brief)
+- Strategic direction (discuss freely, no brief needed)
+
+---
+
 ## PERMANENT RULES (NEVER VIOLATE)
 
 These rules apply regardless of context, time pressure, or convenience.
