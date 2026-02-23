@@ -1,26 +1,8 @@
 # DESIGN TOKENS
-### [APP_NAME] — Version 1.0
+### [APP_NAME] — Version 2.0
 ### Single Source of Truth for All Visual Values
 
 > This file is the canonical reference for every visual constant. No value in this file may be overridden inline. All token changes require a design review.
-
----
-
-## THEME DIRECTION
-
-The current theme follows these principles. These can be changed — update
-this section and the corresponding token values when shifting direction.
-
-**Current direction:** Dark-first, institutionally calm, Swiss precision
-**Accent:** Single blue (#4F6EF7)
-**Feel:** Restrained, technical, timeless
-**Personality:** Confident, minimal, precise
-
-To change the theme direction, update:
-1. This section (describe the new direction)
-2. The primitive token values below (colors, radii, etc.)
-3. STYLE_GUIDE.md (update the visual identity description)
-4. The token CSS file (src/styles/tokens.css)
 
 ---
 
@@ -168,26 +150,43 @@ Tier 3: Component Tokens     (component-specific — mapped to semantic)
   --bg-surface:  var(--primitive-zinc-925);
   --bg-raised:   var(--primitive-zinc-900);
   --bg-overlay:  var(--primitive-zinc-800);
+  --bg-muted:    var(--primitive-zinc-700);
 
   /* Text */
   --text-primary:   var(--primitive-zinc-050);
   --text-secondary: var(--primitive-zinc-400);
   --text-tertiary:  var(--primitive-zinc-500);
   --text-disabled:  var(--primitive-zinc-600);
+  --text-inverse:   var(--primitive-zinc-950);
 
   /* Accent */
-  --accent:         var(--primitive-brand-500);
+  --accent-primary: var(--primitive-brand-500);
   --accent-hover:   var(--primitive-brand-400);
-  --accent-subtle:  rgba(79, 110, 247, 0.10);
+  --accent-active:  var(--primitive-brand-600);
+  --accent-subtle:  rgba(79, 110, 247, 0.12);
+  --accent-border:  rgba(79, 110, 247, 0.30);
 
   /* Borders */
-  --border:         rgba(255, 255, 255, 0.08);
-  --border-strong:  rgba(255, 255, 255, 0.14);
+  --border-subtle:  rgba(255, 255, 255, 0.06);
+  --border-default: rgba(255, 255, 255, 0.10);
+  --border-strong:  rgba(255, 255, 255, 0.18);
+  --border-accent:  var(--accent-border);
 
   /* Semantic states */
   --success:        var(--primitive-green-500);
+  --success-subtle: rgba(34, 197, 94, 0.10);
+  --success-border: rgba(34, 197, 94, 0.25);
+
   --warning:        var(--primitive-amber-500);
+  --warning-subtle: rgba(245, 158, 11, 0.10);
+  --warning-border: rgba(245, 158, 11, 0.25);
+
   --error:          var(--primitive-red-500);
+  --error-subtle:   rgba(239, 68, 68, 0.10);
+  --error-border:   rgba(239, 68, 68, 0.25);
+
+  --pending:        var(--primitive-slate-400);
+  --pending-subtle: rgba(148, 163, 184, 0.10);
 }
 ```
 
@@ -198,66 +197,72 @@ Tier 3: Component Tokens     (component-specific — mapped to semantic)
   --font-mono: var(--primitive-font-mono);
 
   /* Type scale — named by role */
-  --text-display-size:    56px;
-  --text-display-leading: 1.0;
-  --text-display-weight:  600;
+  --text-display-size:    var(--primitive-size-48);
+  --text-display-leading: var(--primitive-leading-tight);
+  --text-display-weight:  var(--primitive-weight-600);
 
-  --text-h1-size:    36px;
-  --text-h1-leading: 1.15;
-  --text-h1-weight:  600;
+  --text-h1-size:    var(--primitive-size-32);
+  --text-h1-leading: var(--primitive-leading-snug);
+  --text-h1-weight:  var(--primitive-weight-600);
 
-  --text-h2-size:    24px;
-  --text-h2-leading: 1.3;
-  --text-h2-weight:  600;
+  --text-h2-size:    var(--primitive-size-24);
+  --text-h2-leading: var(--primitive-leading-snug);
+  --text-h2-weight:  var(--primitive-weight-600);
 
-  --text-h3-size:    22px;
-  --text-h3-leading: 1.3;
-  --text-h3-weight:  500;
+  --text-h3-size:    var(--primitive-size-20);
+  --text-h3-leading: var(--primitive-leading-snug);
+  --text-h3-weight:  var(--primitive-weight-500);
 
-  --text-body-size:    16px;
-  --text-body-leading: 1.6;
-  --text-body-weight:  400;
+  --text-body-size:    var(--primitive-size-16);
+  --text-body-leading: var(--primitive-leading-normal);
+  --text-body-weight:  var(--primitive-weight-400);
 
-  --text-sm-size:    15px;
-  --text-sm-leading: 1.55;
-  --text-sm-weight:  400;
+  --text-sm-size:    var(--primitive-size-14);
+  --text-sm-leading: var(--primitive-leading-normal);
+  --text-sm-weight:  var(--primitive-weight-400);
 
-  --text-label-size:    13px;
-  --text-label-leading: 1.4;
-  --text-label-weight:  500;
+  --text-label-size:    var(--primitive-size-12);
+  --text-label-leading: var(--primitive-leading-tight);
+  --text-label-weight:  var(--primitive-weight-500);
 
-  --text-micro-size:    12px;
-  --text-micro-leading: 1.4;
-  --text-micro-weight:  500;
+  --text-micro-size:    var(--primitive-size-11);
+  --text-micro-leading: var(--primitive-leading-tight);
+  --text-micro-weight:  var(--primitive-weight-500);
 }
 ```
 
 ### Spacing Semantics
 ```css
 :root {
-  --spacing-page-x-mobile:  16px;
-  --spacing-page-x-desktop: 32px;
-  --spacing-page-y:         32px;
-  --spacing-card:           24px;
-  --spacing-section:        32px;
-  --spacing-element:        16px;
-  --spacing-tight:          8px;
-  --spacing-micro:          4px;
+  --spacing-page-x-mobile:  var(--primitive-space-4);   /* 16px */
+  --spacing-page-x-desktop: var(--primitive-space-8);   /* 32px */
+  --spacing-page-y:         var(--primitive-space-8);   /* 32px */
+  --spacing-card:           var(--primitive-space-6);   /* 24px */
+  --spacing-section:        var(--primitive-space-8);   /* 32px */
+  --spacing-element:        var(--primitive-space-4);   /* 16px */
+  --spacing-tight:          var(--primitive-space-2);   /* 8px */
+  --spacing-micro:          var(--primitive-space-1);   /* 4px */
 }
 ```
 
 ### Motion Semantics
 ```css
 :root {
-  --motion-instant:  80ms;
-  --motion-fast:     120ms;
-  --motion-normal:   200ms;
-  --motion-enter:    220ms;
-  --motion-exit:     150ms;
+  --motion-instant:  var(--primitive-duration-instant);
+  --motion-fast:     var(--primitive-duration-fast);
+  --motion-normal:   var(--primitive-duration-normal);
+  --motion-enter:    var(--primitive-duration-enter);
+  --motion-exit:     var(--primitive-duration-exit);
 
-  --ease-enter:    cubic-bezier(0.0, 0.0, 0.2, 1);
-  --ease-exit:     cubic-bezier(0.4, 0.0, 1, 1);
-  --ease-standard: cubic-bezier(0.4, 0.0, 0.2, 1);
+  --ease-enter:    var(--primitive-ease-out);
+  --ease-exit:     var(--primitive-ease-in);
+  --ease-standard: var(--primitive-ease-standard);
+
+  --transition-colors: color var(--motion-fast) var(--ease-standard),
+                       background-color var(--motion-fast) var(--ease-standard),
+                       border-color var(--motion-fast) var(--ease-standard);
+
+  --transition-transform: transform var(--motion-instant) var(--ease-standard);
 }
 ```
 
@@ -268,26 +273,33 @@ Tier 3: Component Tokens     (component-specific — mapped to semantic)
 ### Button Component
 ```css
 :root {
-  --btn-primary-bg:          var(--accent);
+  /* Primary */
+  --btn-primary-bg:          var(--accent-primary);
   --btn-primary-bg-hover:    var(--accent-hover);
+  --btn-primary-bg-active:   var(--accent-active);
   --btn-primary-text:        white;
-  --btn-primary-height:      52px;
-  --btn-primary-radius:      var(--primitive-radius-12);
-  --btn-primary-font-size:   16px;
-  --btn-primary-font-weight: 500;
+  --btn-primary-height:      44px;
+  --btn-primary-radius:      var(--primitive-radius-8);
+  --btn-primary-padding-x:   var(--primitive-space-4);  /* 16px */
+  --btn-primary-padding-y:   var(--primitive-space-3);  /* 12px */
+  --btn-primary-font-size:   var(--text-sm-size);
+  --btn-primary-font-weight: var(--primitive-weight-500);
 
+  /* Secondary */
   --btn-secondary-bg:        transparent;
   --btn-secondary-bg-hover:  var(--bg-raised);
-  --btn-secondary-border:    var(--border-strong);
+  --btn-secondary-border:    var(--border-default);
   --btn-secondary-text:      var(--text-primary);
 
+  /* Ghost */
   --btn-ghost-bg:            transparent;
   --btn-ghost-bg-hover:      var(--bg-raised);
   --btn-ghost-text:          var(--text-secondary);
   --btn-ghost-text-hover:    var(--text-primary);
 
+  /* Disabled (all variants) */
   --btn-disabled-opacity:    0.4;
-  --btn-transform-active:    scale(0.97);
+  --btn-transform-active:    scale(0.98);
 }
 ```
 
@@ -295,9 +307,13 @@ Tier 3: Component Tokens     (component-specific — mapped to semantic)
 ```css
 :root {
   --card-bg:            var(--bg-surface);
-  --card-border:        var(--border);
+  --card-border:        var(--border-subtle);
   --card-radius:        var(--primitive-radius-12);
-  --card-padding:       28px;
+  --card-padding:       var(--spacing-card);
+  --card-shadow:        0 1px 3px rgba(0,0,0,0.3), 0 1px 2px rgba(0,0,0,0.2);
+
+  --card-raised-bg:     var(--bg-raised);
+  --card-overlay-bg:    var(--bg-overlay);
 }
 ```
 
@@ -305,14 +321,17 @@ Tier 3: Component Tokens     (component-specific — mapped to semantic)
 ```css
 :root {
   --input-bg:              var(--bg-overlay);
-  --input-border:          var(--border);
-  --input-border-focus:    var(--accent);
+  --input-border:          var(--border-default);
+  --input-border-focus:    var(--accent-primary);
   --input-border-error:    var(--error);
-  --input-radius:          var(--primitive-radius-12);
-  --input-height:          52px;
-  --input-font-size:       16px;
+  --input-radius:          var(--primitive-radius-8);
+  --input-height:          44px;
+  --input-padding-x:       var(--primitive-space-4);
+  --input-padding-y:       var(--primitive-space-3);
+  --input-font-size:       var(--text-sm-size);
   --input-text:            var(--text-primary);
-  --input-placeholder:     var(--text-disabled);
+  --input-placeholder:     var(--text-tertiary);
+  --input-shadow-focus:    0 0 0 3px var(--accent-subtle);
 }
 ```
 
@@ -321,27 +340,34 @@ Tier 3: Component Tokens     (component-specific — mapped to semantic)
 :root {
   --modal-overlay-bg:   rgba(0, 0, 0, 0.6);
   --modal-bg:           var(--bg-overlay);
-  --modal-border:       var(--border);
+  --modal-border:       var(--border-subtle);
   --modal-radius:       var(--primitive-radius-16);
-  --modal-padding:      32px;
+  --modal-padding:      var(--primitive-space-8);  /* 32px */
   --modal-max-width:    480px;
+  --modal-shadow:       0 24px 48px rgba(0,0,0,0.4), 0 8px 16px rgba(0,0,0,0.3);
 }
 ```
 
 ### Navigation Component
 ```css
 :root {
+  /* Sidebar */
   --sidebar-width:      240px;
   --sidebar-bg:         var(--bg-surface);
-  --sidebar-border:     var(--border);
+  --sidebar-border:     var(--border-subtle);
+  --nav-item-padding-x: var(--primitive-space-3);
+  --nav-item-padding-y: var(--primitive-space-2);
   --nav-item-radius:    var(--primitive-radius-8);
+  --nav-item-gap:       var(--primitive-space-3);
   --nav-active-bg:      var(--accent-subtle);
-  --nav-active-text:    var(--accent);
+  --nav-active-text:    var(--accent-primary);
+  --nav-active-border:  var(--accent-primary);
   --nav-default-text:   var(--text-secondary);
 
+  /* Bottom nav (mobile) */
   --bottom-nav-height:  64px;
   --bottom-nav-bg:      var(--bg-surface);
-  --bottom-nav-border:  var(--border);
+  --bottom-nav-border:  var(--border-subtle);
 }
 ```
 
@@ -355,11 +381,24 @@ The following CI check must pass on every PR:
 ```bash
 #!/bin/bash
 # Fails build if raw hex values found outside token files
-grep -rn '#[0-9a-fA-F]\{3,8\}' \
-  --include="*.tsx" --include="*.ts" \
-  src/app src/components src/hooks src/lib 2>/dev/null \
-  && echo 'RAW HEX FOUND' && exit 1 \
-  || echo 'No raw hex values found outside token files'
+VIOLATIONS=$(grep -rn '#[0-9a-fA-F]\{3,8\}' \
+  --include="*.tsx" \
+  --include="*.ts" \
+  --include="*.css" \
+  --exclude="tokens.css" \
+  --exclude="*.test.*" \
+  src/app/ src/components/ src/hooks/ src/lib/ \
+  2>/dev/null | wc -l)
+
+if [ "$VIOLATIONS" -gt 0 ]; then
+  echo "Raw hex values found outside token files:"
+  grep -rn '#[0-9a-fA-F]\{3,8\}' \
+    --include="*.tsx" --include="*.ts" --include="*.css" \
+    --exclude="tokens.css" --exclude="*.test.*" \
+    src/app/ src/components/ src/hooks/ src/lib/
+  exit 1
+fi
+echo "No raw hex values found outside token files"
 ```
 
 ### Token Usage Lint Rule

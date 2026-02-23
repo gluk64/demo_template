@@ -33,7 +33,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
             [errorId, hintId].filter(Boolean).join(' ') || undefined
           }
           className={cn(
-            'min-h-[52px] rounded-md border bg-bg-overlay px-4 py-3 text-base text-text-primary placeholder:text-text-disabled',
+            'min-h-[44px] rounded-sm border bg-bg-overlay px-4 py-3 text-sm text-text-primary placeholder:text-text-tertiary',
             'transition-colors focus:outline-none focus:ring-2 focus:ring-accent-subtle',
             error
               ? 'border-error focus:border-error'
