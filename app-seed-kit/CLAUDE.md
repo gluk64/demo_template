@@ -38,18 +38,24 @@ lib/                Pure functions — formatting, validation, mock engine
 
 ## UX & Style
 
-Read these once and apply them as you build — they are the quality bar:
+Read these docs and apply them as you build — they are the quality bar:
 
-- **`docs/UX_RULES.md`** — Enforceable UX constraints (screen discipline, copy rules, motion, accessibility)
-- **`docs/STYLE_GUIDE.md`** — Visual reference (color tokens, typography, component specs, animation catalog)
+- **`docs/UX_GUIDELINES.md`** — Design philosophy, interaction patterns, copy standards, responsive design, accessibility
+- **`docs/UX_ENFORCEMENT_RULES.md`** — Machine-enforceable rules (screen discipline, typography, color, spacing, motion, interaction, empty states)
+- **`docs/MOTION_SPEC.md`** — Animation system: timing, easing, full animation catalog with Framer Motion code
+- **`docs/STYLE_GUIDE.md`** — Visual reference (color tokens, typography, component specs, animation snippets)
 
 Key rules to internalize:
-- One primary CTA per screen
-- 44px minimum touch targets
-- Error messages: [what happened] + [reassurance] + [what to do]
+- One primary CTA per screen. All others secondary or ghost.
+- 44px minimum touch targets on all interactive elements
+- Error messages: [what happened] + [reassurance] + [what to do]. Never blame the user.
 - Empty states are invitations, not apologies
 - All Framer Motion animations have `useReducedMotion` fallback
-- No emoji, no neon, no gradients, dark-first always
+- No emoji, no neon, no gradients, no glow — dark-first always
+- Optimistic updates: UI changes within 50ms of user action
+- Copy must pass the clarity test: would a 12-year-old understand it?
+
+**After building any UI**, run the **ux-reviewer** agent (`.claude/agents/ux-reviewer.md`) to audit compliance.
 
 ---
 
@@ -148,5 +154,6 @@ src/lib/mock/engine.ts     Seedable PRNG + delay simulation
 src/store/index.ts         Zustand store root
 src/types/index.ts         Shared type definitions
 src/lib/constants.ts       App name, storage key, session cookie
-docs/                      UX_RULES.md, STYLE_GUIDE.md
+docs/                      UX_GUIDELINES, UX_ENFORCEMENT_RULES, MOTION_SPEC, STYLE_GUIDE
+.claude/agents/            ux-reviewer (run after UI changes)
 ```
