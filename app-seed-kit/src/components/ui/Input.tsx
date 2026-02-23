@@ -33,11 +33,11 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
             [errorId, hintId].filter(Boolean).join(' ') || undefined
           }
           className={cn(
-            'min-h-[52px] rounded-md border bg-bg-overlay px-4 py-3 text-base text-text-primary placeholder:text-text-disabled',
-            'transition-colors focus:outline-none focus:ring-2 focus:ring-accent-subtle',
+            'min-h-[44px] rounded-md border bg-bg-surface px-4 py-3 text-base text-text-primary placeholder:text-text-tertiary',
+            'transition-colors focus:outline-none focus:shadow-ring',
             error
               ? 'border-error focus:border-error'
-              : 'border-border focus:border-accent',
+              : 'border-border-strong focus:border-accent',
           )}
           {...props}
         />

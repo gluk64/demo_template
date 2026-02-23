@@ -43,14 +43,14 @@ export const Sidebar = ({ appName = '[APP_NAME]', items }: SidebarProps): React.
               key={item.href}
               href={item.href}
               className={cn(
-                'flex items-center gap-3 rounded-md px-3 py-3 text-sm transition-colors',
+                'flex items-center gap-3 rounded-sm px-3 py-3 text-sm transition-colors',
                 isActive
                   ? 'bg-accent-subtle text-text-primary'
                   : 'text-text-secondary hover:bg-bg-raised hover:text-text-primary',
               )}
             >
               <item.icon
-                size={18}
+                size={20}
                 className={cn(
                   isActive ? 'text-accent' : 'text-text-tertiary',
                 )}

@@ -9,11 +9,11 @@ type BadgeProps = {
 }
 
 const variantStyles: Record<BadgeVariant, string> = {
-  success: 'text-success',
-  warning: 'text-warning',
-  error: 'text-error',
-  neutral: 'text-text-tertiary',
-  accent: 'text-accent',
+  success: 'bg-success-subtle text-success',
+  warning: 'bg-warning-subtle text-warning',
+  error: 'bg-error-subtle text-error',
+  neutral: 'bg-bg-raised text-text-secondary',
+  accent: 'bg-accent-subtle text-accent',
 }
 
 export const Badge = ({
@@ -24,7 +24,7 @@ export const Badge = ({
   return (
     <span
       className={cn(
-        'inline-flex items-center text-label font-medium',
+        'inline-flex items-center rounded-pill px-2 py-0.5 text-micro font-medium',
         variantStyles[variant],
         className,
       )}

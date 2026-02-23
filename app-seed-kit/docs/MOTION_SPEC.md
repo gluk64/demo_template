@@ -75,7 +75,7 @@ const pageTransition = {
 ### 2. Button Press
 
 ```typescript
-whileTap={{ scale: 0.97 }}
+whileTap={{ scale: 0.98 }}
 transition={{ duration: 0.08 }}
 ```
 

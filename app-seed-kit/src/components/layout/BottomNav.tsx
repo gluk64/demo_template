@@ -37,11 +37,11 @@ export const BottomNav = ({ items }: BottomNavProps): React.JSX.Element => {
               key={item.href}
               href={item.href}
               className={cn(
-                'flex min-h-[52px] flex-col items-center justify-center gap-1 px-3',
+                'flex min-h-[44px] flex-col items-center justify-center gap-1 px-3',
                 isActive ? 'text-accent' : 'text-text-tertiary',
               )}
             >
-              <item.icon size={22} aria-hidden="true" />
+              <item.icon size={20} aria-hidden="true" />
               <span className="text-[10px] leading-none">{item.label}</span>
             </Link>
           )

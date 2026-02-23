@@ -12,7 +12,7 @@ export const Card = ({
   return (
     <div
       className={cn(
-        'rounded-md border border-border bg-bg-surface p-7',
+        'rounded-lg border border-border bg-bg-surface p-6 shadow-sm',
         className,
       )}
     >

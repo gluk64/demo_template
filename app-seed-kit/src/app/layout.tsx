@@ -15,7 +15,7 @@ export default function RootLayout({
   children: React.ReactNode
 }): React.JSX.Element {
   return (
-    <html lang="en" className="dark">
+    <html lang="en">
       <body className="font-sans bg-bg-base text-text-primary antialiased">
         {children}
       </body>
