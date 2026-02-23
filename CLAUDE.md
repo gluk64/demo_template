@@ -34,18 +34,20 @@ If any value is ambiguous, ask. Do not guess.
    - `src/store/slices/auth.ts` — storage key and cookie name
    - `src/components/layout/Sidebar.tsx` — default app name prop
    - `tests/e2e/helpers.ts` — session cookie and storage key
-   - `docs/*.md` — all doc headers
+   - `src/styles/tokens.css` — comment header
+   - `docs/UX_RULES.md` — doc header
+   - `docs/STYLE_GUIDE.md` — doc header and visual character section
 3. Delete the `app-seed-kit/` directory
 4. Run `npm install`
 5. Run `npm run quality` to verify everything works
 
 ### Step 3 — Confirm
 
-Tell the user the project is ready and suggest they enter plan mode to start designing their first feature.
+Tell the user the project is ready and suggest they start describing their first feature.
 
 ---
 
 ## Important
 
 - Do **not** modify the template's architecture, components, or patterns during bootstrap. Just move files and replace placeholders.
-- The project's `CLAUDE.md` (inside `app-seed-kit/`) contains all development instructions, permanent rules, and plan mode guidance. After bootstrap, it becomes the root `CLAUDE.md` and governs all subsequent work.
+- The project's `CLAUDE.md` (inside `app-seed-kit/`) contains all development instructions. After bootstrap, it becomes the root `CLAUDE.md` and governs all subsequent work.
