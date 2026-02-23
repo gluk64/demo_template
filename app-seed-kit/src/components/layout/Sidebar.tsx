@@ -26,7 +26,7 @@ export const Sidebar = ({ appName = '[APP_NAME]', items }: SidebarProps): React.
   const displayItems = items ?? navItems
 
   return (
-    <aside className="hidden md:flex md:w-[240px] md:flex-col md:fixed md:inset-y-0 border-r border-border bg-bg-surface px-4 py-6">
+    <aside className="hidden md:flex md:w-[240px] md:flex-col md:fixed md:inset-y-0 border-r border-border-subtle bg-bg-surface px-4 py-6">
       {/* Brand */}
       <div className="mb-8 px-3">
         <p className="text-micro font-semibold tracking-[0.1em] text-text-tertiary uppercase">
@@ -43,14 +43,14 @@ export const Sidebar = ({ appName = '[APP_NAME]', items }: SidebarProps): React.
               key={item.href}
               href={item.href}
               className={cn(
-                'flex items-center gap-3 rounded-md px-3 py-3 text-sm transition-colors',
+                'flex items-center gap-3 rounded-sm px-3 py-2 text-sm transition-colors',
                 isActive
-                  ? 'bg-accent-subtle text-text-primary'
+                  ? 'bg-accent-subtle text-accent border-l-2 border-accent'
                   : 'text-text-secondary hover:bg-bg-raised hover:text-text-primary',
               )}
             >
               <item.icon
-                size={18}
+                size={20}
                 className={cn(
                   isActive ? 'text-accent' : 'text-text-tertiary',
                 )}
