@@ -1,436 +1,179 @@
-# STYLE GUIDE
-### [APP_NAME] — Version 2.0
-### Visual Identity System
-
-> Designed by the standards of: Apple's Human Interface Guidelines, IBM Carbon Design System, and Vercel's product aesthetic. Restrained, technical, and timeless.
+# Style Guide
+### [APP_NAME] — Visual Identity & Design Reference
 
 ---
 
-## BRAND IDENTITY
+## Visual Character
 
-### The Visual Character
+Dark-first, typographically driven, spatially generous. Inspired by Linear, Vercel, and private banking interfaces. One accent color — everything else is neutral. No decoration that doesn't serve a function.
 
-[APP_NAME] occupies the intersection of three aesthetics:
-
-1. **Swiss financial precision** — The visual language of private banking. Negative space is wealth. Restraint is confidence. Nothing decorative that doesn't serve a function.
-
-2. **Technical authority** — Dark-first, monospace numerals, cryptographic precision. The aesthetic signals that something serious and advanced is happening beneath the surface.
-
-3. **Calm technology** — Inspired by Muji, Linear, and Calm. The interface should not demand attention. It should provide clarity and step aside.
-
-### What We Are
-- Dark-first, always
-- Typographically driven
-- Spatially generous
-- Precisely minimal
-- Institutionally calm
-
-### What We Are Not
-- Fintech-playful (no bright colors, no confetti, no celebrations)
-- Crypto-loud (no neon, no glow, no "Web3 aesthetic")
-- Enterprise-heavy (no tables as primary content, no dense data grids)
-- Consumer-casual (no rounded-xl everywhere, no friendly illustration style)
+**What we are not:** fintech-playful, crypto-loud, enterprise-heavy, consumer-casual.
 
 ---
 
-## COLOR SYSTEM
+## Color System
 
-### Philosophy
-One accent color. Everything else is neutral. The accent is not decorative — it is functional. It appears only where user action is required or confirmed.
+### Backgrounds (5 levels of elevation)
+| Token              | Value     | Use                        |
+|--------------------|-----------|----------------------------|
+| `--bg-base`        | `#09090B` | Page background            |
+| `--bg-surface`     | `#111113` | Cards, panels, sidebar     |
+| `--bg-raised`      | `#18181B` | Elevated elements, hovers  |
+| `--bg-overlay`     | `#27272A` | Modals, dropdowns, inputs  |
+| `--bg-muted`       | `#3F3F46` | Disabled, dividers         |
 
-### Background Scale
-A five-level grayscale from deepest background to highest surface:
+### Text
+| Token              | Value     | Use                        |
+|--------------------|-----------|----------------------------|
+| `--text-primary`   | `#FAFAFA` | Headings, primary content  |
+| `--text-secondary` | `#A1A1AA` | Labels, metadata           |
+| `--text-tertiary`  | `#71717A` | Placeholders, captions     |
+| `--text-disabled`  | `#52525B` | Disabled state             |
+| `--text-inverse`   | `#09090B` | Text on light backgrounds  |
+
+### Accent (Brand Blue)
+| Token              | Value                        | Use                    |
+|--------------------|------------------------------|------------------------|
+| `--accent-primary` | `#4F6EF7`                    | Primary CTA, focus     |
+| `--accent-hover`   | `#7B96FA`                    | Hover state            |
+| `--accent-active`  | `#3B5BF6`                    | Active/pressed         |
+| `--accent-subtle`  | `rgba(79, 110, 247, 0.12)`   | Tint backgrounds       |
+| `--accent-border`  | `rgba(79, 110, 247, 0.30)`   | Accent borders         |
+
+### Borders
+| Token              | Value                        | Use                    |
+|--------------------|------------------------------|------------------------|
+| `--border-subtle`  | `rgba(255, 255, 255, 0.06)`  | Card borders (hairline)|
+| `--border-default` | `rgba(255, 255, 255, 0.10)`  | Input borders          |
+| `--border-strong`  | `rgba(255, 255, 255, 0.18)`  | Focus borders          |
+
+### Semantic States
+| Token              | Value     | Use                        |
+|--------------------|-----------|----------------------------|
+| `--success`        | `#22C55E` | Confirmed, verified        |
+| `--warning`        | `#F59E0B` | Caution, unverified        |
+| `--error`          | `#EF4444` | Failed (actual failures only) |
+| `--pending`        | `#94A3B8` | Processing                 |
+
+Each has a `-subtle` variant at 10% opacity for backgrounds and a `-border` variant at 25% opacity.
+
+---
+
+## Typography
+
+**Primary:** Inter (all UI text) — `font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11'`
+**Monospace:** JetBrains Mono (numeric values, IDs, code) — `font-variant-numeric: tabular-nums`
+
+### Type Scale (Tailwind classes)
+| Class        | Size  | Line Height | Weight | Use              |
+|--------------|-------|-------------|--------|------------------|
+| `text-display`| 48px | 1.2         | 600    | Hero values      |
+| `text-h1`    | 32px  | 1.35        | 600    | Page titles      |
+| `text-h2`    | 24px  | 1.35        | 600    | Section headers  |
+| `text-h3`    | 20px  | 1.35        | 500    | Card titles      |
+| `text-base`  | 16px  | 1.5         | 400    | Body text        |
+| `text-sm`    | 14px  | 1.5         | 400    | Secondary text   |
+| `text-label` | 12px  | 1.2         | 500    | UI labels        |
+| `text-micro` | 11px  | 1.2         | 500    | Badges, captions |
+
+---
+
+## Spacing (8pt Grid)
 
 ```
---bg-base:      #09090B   (zinc-950) — Page background
---bg-surface:   #111113   (zinc-925) — Cards, panels
---bg-raised:    #18181B   (zinc-900) — Elevated elements
---bg-overlay:   #27272A   (zinc-800) — Modals, dropdowns
---bg-muted:     #3F3F46   (zinc-700) — Dividers, disabled
-```
-
-### Text Scale
-```
---text-primary:    #FAFAFA   — Headings, primary content
---text-secondary:  #A1A1AA   — Labels, metadata, secondary
---text-tertiary:   #71717A   — Placeholders, captions
---text-disabled:   #52525B   — Disabled state
---text-inverse:    #09090B   — Text on light backgrounds
-```
-
-### Accent (Brand)
-```
---accent-primary:   #4F6EF7   — Primary CTA, focus rings, active states
---accent-hover:     #7B96FA   — Hover state of primary
---accent-active:    #3B5BF6   — Active/pressed state
---accent-subtle:    rgba(79, 110, 247, 0.12)   — Accent tint backgrounds
---accent-border:    rgba(79, 110, 247, 0.30)   — Accent border color
-```
-
-### Semantic Colors
-```
---success:          #22C55E   — Confirmed, received, verified
---success-subtle:   rgba(34, 197, 94, 0.10)
---warning:          #F59E0B   — Unverified, caution
---warning-subtle:   rgba(245, 158, 11, 0.10)
---error:            #EF4444   — Failed transactions only
---error-subtle:     rgba(239, 68, 68, 0.10)
---pending:          #94A3B8   — Processing state
-```
-
-### Border Scale
-```
---border-subtle:    rgba(255,255,255,0.06)   — Card borders (hairline)
---border-default:   rgba(255,255,255,0.10)   — Input borders
---border-strong:    rgba(255,255,255,0.18)   — Focus borders
-```
-
-### Tailwind Extension
-```typescript
-// tailwind.config.ts
-colors: {
-  bg: {
-    base: 'var(--bg-base)',
-    surface: 'var(--bg-surface)',
-    raised: 'var(--bg-raised)',
-    overlay: 'var(--bg-overlay)',
-    muted: 'var(--bg-muted)',
-  },
-  text: {
-    primary: 'var(--text-primary)',
-    secondary: 'var(--text-secondary)',
-    tertiary: 'var(--text-tertiary)',
-    disabled: 'var(--text-disabled)',
-  },
-  accent: {
-    DEFAULT: 'var(--accent-primary)',
-    hover: 'var(--accent-hover)',
-    subtle: 'var(--accent-subtle)',
-    border: 'var(--accent-border)',
-  },
-  // ... semantic colors
-}
+4px   → space-1 / p-1     (micro)
+8px   → space-2 / p-2     (tight)
+12px  → space-3 / p-3     (element gap)
+16px  → space-4 / p-4     (standard / mobile page padding)
+24px  → space-6 / p-6     (card padding)
+32px  → space-8 / p-8     (section gap / desktop page padding)
+48px  → space-12           (large section)
+64px  → space-16           (page section)
 ```
 
 ---
 
-## TYPOGRAPHY SYSTEM
-
-### Font Families
-
-#### Primary: Inter
-Used for all UI text — labels, body, headings, buttons.
-```css
-font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11'; /* Improved character forms */
-```
-
-#### Monospace: JetBrains Mono
-Used exclusively for: addresses, amounts, transaction IDs, any string that is a cryptographic or financial value.
-```css
-font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
-font-variant-numeric: tabular-nums;
-font-feature-settings: 'zero' on; /* Slashed zero for readability */
-```
-
-### Type Scale
-
-```
-Display:    48px / 1.2 line-height / weight 600   — Balance hero
-Heading 1:  32px / 1.35 / weight 600              — Page titles
-Heading 2:  24px / 1.35 / weight 600              — Section headers
-Heading 3:  20px / 1.35 / weight 500              — Card titles
-Body:       16px / 1.5 / weight 400               — Primary content
-Body SM:    14px / 1.5 / weight 400               — Secondary content
-Label:      12px / 1.2 / weight 500               — UI labels
-Micro:      11px / 1.2 / weight 500               — Badges, captions
-```
-
-### Numeric Display (Special Case)
-
-Currency amounts in hero position (Dashboard balance):
-```css
-font-size: 48px;
-font-weight: 600;
-letter-spacing: -0.02em;  /* Tight tracking for large numerals */
-font-variant-numeric: tabular-nums;
-font-family: var(--font-mono);
-```
-
-Small inline amounts (Activity feed):
-```css
-font-size: 14px;
-font-weight: 500;
-font-variant-numeric: tabular-nums;
-font-family: var(--font-mono);
-```
-
----
-
-## SPACING SYSTEM
-
-### 8pt Grid
-
-All spacing uses this token set (in px, mapped to Tailwind):
-
-```
-4   →  space-1
-8   →  space-2
-12  →  space-3
-16  →  space-4
-24  →  space-6
-32  →  space-8
-40  →  space-10
-48  →  space-12
-64  →  space-16
-80  →  space-20
-96  →  space-24
-```
-
-### Layout Spacing
-```
-Page horizontal padding (mobile):    16px
-Page horizontal padding (desktop):   32px
-Card internal padding:               24px
-Card gap (list items):               0 (use border instead of gap)
-Section vertical gap:                32px
-Form field gap:                      16px
-Button internal padding:             12px 16px
-```
-
----
-
-## COMPONENT SPECIFICATIONS
+## Component Specs
 
 ### Button
+| Variant     | Background           | Text              | Border                   |
+|-------------|----------------------|-------------------|--------------------------|
+| Primary     | `accent-primary`     | white             | none                     |
+| Secondary   | transparent          | `text-primary`    | `border-default`         |
+| Ghost       | transparent          | `text-secondary`  | none                     |
+| Destructive | `error`              | white             | none (confirm modals only)|
 
-#### Primary Button
-```
-Background:    var(--accent-primary)
-Text:          white
-Border:        none
-Border-radius: 8px
-Height:        44px (minimum touch target)
-Padding:       12px 16px
-Font:          14px / 500
-Hover:         var(--accent-hover) background
-Active:        scale(0.98) transform
-Focus:         2px outline var(--accent-primary) offset 2px
-Disabled:      opacity-40, cursor-not-allowed
-Transition:    colors 100ms, transform 80ms
-```
-
-#### Secondary / Outline Button
-```
-Background:    transparent
-Border:        1px solid var(--border-default)
-Text:          var(--text-primary)
-Border-radius: 8px
-Height:        44px
-Hover:         var(--bg-raised) background
-```
-
-#### Ghost Button
-```
-Background:    transparent
-Border:        none
-Text:          var(--text-secondary)
-Hover:         var(--bg-raised) background, var(--text-primary) text
-```
-
-#### Destructive Button (for confirms only)
-```
-Background:    var(--error)
-Text:          white
-Only used:     Inside confirmation modals
-```
+All: height 44px, radius 8px, padding 12px 16px, font 14px/500. Hover: raised bg or accent-hover. Active: `scale(0.98)`. Disabled: opacity 40%.
 
 ### Card
-
-The fundamental surface unit. All content lives in cards.
-
-```
-Background:      var(--bg-surface)
-Border:          1px solid var(--border-subtle)
-Border-radius:   12px
-Padding:         24px
-Shadow:          0 1px 3px rgba(0,0,0,0.3), 0 1px 2px rgba(0,0,0,0.2)
-```
-
-Card variants:
-```
-Default:     Background bg-surface
-Raised:      Background bg-raised (for secondary content)
-Muted:       Background transparent, border border-subtle (for disabled states)
-Accent:      Border-left 2px solid var(--accent-primary) (for highlighted items)
-```
+Background `bg-surface`, border `border-subtle`, radius 12px, padding 24px, shadow `0 1px 3px rgba(0,0,0,0.3)`.
 
 ### Input
-```
-Background:      var(--bg-overlay)
-Border:          1px solid var(--border-default)
-Border-radius:   8px
-Height:          44px
-Padding:         12px 16px
-Font:            14px / 400
-Color:           var(--text-primary)
-Placeholder:     var(--text-tertiary)
-Focus border:    var(--border-strong), accent shadow ring
-Error border:    var(--error)
-Transition:      border-color 100ms
-```
+Background `bg-overlay`, border `border-default`, radius 8px, height 44px, padding 12px 16px, font 14px. Focus: `border-strong` + accent shadow ring. Error: `error` border.
 
 ### Badge
-```
-Border-radius:   9999px (full pill)
-Padding:         2px 8px
-Font:            11px / weight 500 / uppercase / letter-spacing 0.05em
+Pill shape (radius full), padding 2px 8px, font 11px/500 uppercase. Variants: success (green), warning (amber), error (red), neutral (overlay bg).
+
+### Modal
+Overlay `rgba(0,0,0,0.6)`, bg `bg-overlay`, radius 16px, padding 32px, max-width 480px. Enter: 200ms scale from 0.96. Exit: 150ms.
+
+### Navigation
+**Desktop sidebar:** 240px fixed, bg `bg-surface`, border-right subtle. Active item: accent-subtle bg, accent text.
+**Mobile bottom nav:** 64px + safe area, bg `bg-surface`, border-top subtle. Active: accent icon + label.
+
+---
+
+## Animation Catalog
+
+### Page Transition
+```typescript
+initial: { opacity: 0, y: 8 }
+animate: { opacity: 1, y: 0 }
+exit: { opacity: 0, y: -4 }
+transition: { duration: 0.22, ease: [0.0, 0.0, 0.2, 1] }
 ```
 
-Badge variants:
+### Button Press
+```typescript
+whileTap={{ scale: 0.97 }}
+transition={{ duration: 0.08 }}
 ```
-Success:  bg var(--success-subtle), text var(--success)    → "VERIFIED"
-Warning:  bg var(--warning-subtle), text var(--warning)    → "UNVERIFIED"
-Error:    bg var(--error-subtle),   text var(--error)      → "FAILED"
-Neutral:  bg var(--bg-overlay),     text var(--text-secondary) → "PENDING"
+
+### List Item Insert
+```typescript
+initial: { opacity: 0, height: 0 }
+animate: { opacity: 1, height: 'auto', transition: { height: { duration: 0.2 }, opacity: { duration: 0.15, delay: 0.05 } } }
 ```
 
 ### Modal
-```
-Overlay:         rgba(0,0,0,0.6), backdrop-blur(4px)
-Container:       bg-overlay, border border-subtle
-Border-radius:   16px
-Padding:         32px
-Width:           480px max (full-width on mobile with 16px margin)
-Shadow:          0 24px 48px rgba(0,0,0,0.4), 0 8px 16px rgba(0,0,0,0.3)
-Animation:       fade-in + scale from 0.96 (enter 200ms easeOut)
-                 fade-out + scale to 0.96 (exit 150ms easeIn)
+```typescript
+// Overlay: opacity 0 → 1
+// Content: { opacity: 0, scale: 0.96, y: 8 } → { opacity: 1, scale: 1, y: 0 }
+// Enter: 200ms ease-out. Exit: 150ms ease-in.
 ```
 
-### Navigation
-
-#### Desktop Sidebar
-```
-Width:           240px
-Background:      var(--bg-surface)
-Border-right:    1px solid var(--border-subtle)
-Padding:         24px 16px
-
-Nav Item default:
-  Padding:       8px 12px
-  Border-radius: 8px
-  Color:         var(--text-secondary)
-  Gap:           12px (icon + text)
-
-Nav Item active:
-  Background:    var(--accent-subtle)
-  Color:         var(--accent-primary)
-  Border-left:   2px solid var(--accent-primary)
-```
-
-#### Mobile Bottom Nav
-```
-Height:          64px + safe-area-inset-bottom
-Background:      var(--bg-surface)
-Border-top:      1px solid var(--border-subtle)
-
-Nav Item default:
-  Icon:          20px, var(--text-tertiary)
-  Label:         10px, hidden on inactive (optional)
-
-Nav Item active:
-  Icon:          20px, var(--accent-primary)
-  Label:         10px, var(--accent-primary), visible
+### Reduced Motion Fallback
+```typescript
+const shouldReduceMotion = useReducedMotion()
+// Reduced: opacity-only, max 100ms. Full: translate + opacity, standard timing.
 ```
 
 ---
 
-## ICONOGRAPHY
+## Forbidden Patterns
 
-### Icon Library: Lucide React
-- All icons must use Lucide React
-- No mixing of icon libraries
-- Custom SVG only for brand-specific elements (logo)
-
-### Icon Sizing
-```
-Navigation:     20px
-Card action:    18px
-Inline body:    16px
-Badge/chip:     12px
-Status dot:     8px (CSS circle, not icon)
-```
-
-### Icon Usage Rules
-- All icons that communicate state must have aria-label
-- Decorative icons use aria-hidden="true"
-- Never use icons alone for critical state without text backup
-- Icons never animate independently (except loading spinner)
+- Neon or fluorescent colors
+- Color gradients as decoration
+- Glow, bloom, glassmorphism effects
+- Emoji in UI
+- Illustrations, photography, decorative imagery
+- White backgrounds (dark-first always)
+- Multiple accent colors
+- Animations > 400ms without progress
+- Spring, bounce, or elastic easings
 
 ---
 
-## SURFACES AND ELEVATION
+## Icons
 
-### The Four Surfaces
-
-Rather than shadows, we use background elevation to signal depth:
-
-```
-Level 0 (Base):     #09090B   — Page background, never interactive
-Level 1 (Surface):  #111113   — Primary cards, sidebars
-Level 2 (Raised):   #18181B   — Dropdown menus, secondary cards
-Level 3 (Overlay):  #27272A   — Modals, popovers, toasts
-```
-
-### Shadow System
-
-Used sparingly, to reinforce the elevation system:
-
-```
-Shadow-sm (Level 1):  0 1px 2px rgba(0,0,0,0.20)
-Shadow-md (Level 2):  0 4px 6px rgba(0,0,0,0.25), 0 1px 3px rgba(0,0,0,0.20)
-Shadow-lg (Level 3):  0 20px 40px rgba(0,0,0,0.40), 0 8px 16px rgba(0,0,0,0.30)
-```
-
----
-
-## IMAGERY AND ILLUSTRATION
-
-### Policy
-No illustrations, no photography, and no decorative imagery. Empty states and placeholder content use icon + typography only.
-
-### Acceptable Visual Elements
-- Lucide icons (functional only)
-- QR code (functional)
-- Brand logomark (header only)
-- Status indicators (colored dots, badges)
-- Progress indicators (rings, bars)
-
-### Forbidden
-- Hero images
-- Illustration characters or scenes
-- Stock photography
-- Decorative patterns or textures (including noise texture)
-- Lottie animations
-- Background imagery
-
----
-
-## FORBIDDEN PATTERNS (PERMANENT)
-
-These are never permitted, regardless of context or request:
-
-| Pattern | Rationale |
-|---------|-----------|
-| Neon or fluorescent colors | Incompatible with financial trust |
-| Color gradients as decoration | Signals consumer-grade aesthetic |
-| Glow or bloom effects | Crypto-kitsch |
-| Glassmorphism | Currently overused, signals trendiness not longevity |
-| Rounded-full on cards (card pills) | Too playful for institutional feel |
-| Emoji in UI | Incompatible with precision aesthetic |
-| Animation > 400ms without progress | Signals slowness |
-| Multiple accent colors | Destroys visual hierarchy |
-| Dark text on dark background | Obvious contrast failure |
-| White backgrounds anywhere | Brand is dark-first, always |
-| Background images or textures | Visual noise |
-| text-white without token mapping | Use text-primary token instead |
+Lucide React only. Sizes: navigation 20px, card action 18px, inline 16px, badge 12px. Decorative icons: `aria-hidden="true"`. State-communicating icons: require `aria-label`.
