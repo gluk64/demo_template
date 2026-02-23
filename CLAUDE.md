@@ -35,7 +35,9 @@ If any value is ambiguous, ask. Do not guess.
    - `src/components/layout/Sidebar.tsx` — default app name prop
    - `tests/e2e/helpers.ts` — session cookie and storage key
    - `src/styles/tokens.css` — comment header
-   - `docs/UX_RULES.md` — doc header
+   - `docs/UX_GUIDELINES.md` — doc header
+   - `docs/UX_ENFORCEMENT_RULES.md` — doc header
+   - `docs/MOTION_SPEC.md` — doc header
    - `docs/STYLE_GUIDE.md` — doc header and visual character section
 3. Delete the `app-seed-kit/` directory
 4. Run `npm install`
